@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Projects</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Projects</h1>
+
+    <p>Construction projects stored in the database.</p>
+
+
+    {% for project in projects %}
+
+    <div class="card">
+
+        <h2>{{ project[1] }}</h2>
+
+        <p>
+            <strong>Description:</strong>
+            {{ project[2] }}
+        </p>
+
+        <p>
+            <strong>Start Date:</strong>
+            {{ project[3] }}
+        </p>
+
+        <p>
+            <strong>Deadline:</strong>
+            {{ project[4] }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ project[5] }}
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            {{ project[6] }}
+        </p>
+
+
+        
+{% if session.get('role') == 'manager' %}
+    <a href="{{ url_for('delete_project', project_id=project['id']) }}"
+       onclick="return confirm('Are you sure you want to delete this project?');">
+        🗑️ Delete Project
+    </a>
+{% endif %}
+
+        </a>
+
+    </div>
+
+
+    {% else %}
+
+    <div class="card">
+
+        <h2>No Projects Found</h2>
+
+        <p>Please create a project first.</p>
+
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+</body>
+
+</html>

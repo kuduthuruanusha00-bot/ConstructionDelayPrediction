@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Risk Alerts</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>⚠️ Risk Alerts</h1>
+
+    <p>
+        High-risk construction tasks requiring attention
+    </p>
+
+
+    {% for alert in alerts %}
+
+    <div class="card">
+
+        <h2 class="status-high">
+            🔴 HIGH RISK
+        </h2>
+
+        <h2>
+            {{ alert.task_name }}
+        </h2>
+
+        <p>
+            <strong>Project:</strong>
+            {{ alert.project_name }}
+        </p>
+
+        <p>
+            <strong>Progress:</strong>
+            {{ alert.progress }}%
+        </p>
+
+        <p>
+            <strong>Days Remaining:</strong>
+            {{ alert.days_remaining }}
+        </p>
+
+        <p>
+            <strong>Resource Utilization:</strong>
+            {{ alert.utilization }}%
+        </p>
+
+        <p>
+            <strong>⚠️ Alert:</strong>
+            Task requires immediate attention.
+        </p>
+
+        <p>
+            <strong>💡 Recommendation:</strong>
+            {{ alert.recommendation }}
+        </p>
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+
+        <h2>🟢 No High-Risk Tasks</h2>
+
+        <p>
+            Currently, no tasks require immediate attention.
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

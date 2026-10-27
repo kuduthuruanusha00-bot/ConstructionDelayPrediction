@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="dashboard">
+
+    <h1>📊 Analytics Dashboard</h1>
+    <p>Construction project performance overview</p>
+
+    <div class="card">
+        <h2>Total Projects</h2>
+        <h1>{{ total_projects }}</h1>
+    </div>
+
+    <div class="card">
+        <h2>Total Tasks</h2>
+        <h1>{{ total_tasks }}</h1>
+    </div>
+
+    <div class="card">
+        <h2>Average Task Progress</h2>
+        <h1>{{ average_progress }}%</h1>
+    </div>
+
+    <div class="card">
+        <h2>Average Resource Utilization</h2>
+        <h1>{{ average_utilization }}%</h1>
+    </div>
+
+    <div class="card">
+        <h2>Task Completion</h2>
+        <p>Completed tasks: {{ completed_tasks }}</p>
+        <p>Pending tasks: {{ pending_tasks }}</p>
+    </div>
+
+    <div class="card">
+        <h2>🤖 Predicted Delay Risk Distribution</h2>
+
+        <p class="status-low">🟢 Low Risk: {{ low_risk }} tasks</p>
+        <p class="status-medium">🟡 Medium Risk: {{ medium_risk }} tasks</p>
+        <p class="status-high">🔴 High Risk: {{ high_risk }} tasks</p>
+    </div>
+
+    
+
+</div>
+</body>
+</html>

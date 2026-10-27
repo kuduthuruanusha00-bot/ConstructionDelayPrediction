@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stored Resources</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Stored Resources</h1>
+
+    <p>Construction project resources</p>
+
+    {% for resource in resources %}
+
+    <div class="card">
+
+        <h2>{{ resource[2] }}</h2>
+
+        <p>
+            <strong>Project:</strong>
+            {{ resource[1] }}
+        </p>
+
+        <p>
+            <strong>Resource Type:</strong>
+            {{ resource[3] }}
+        </p>
+
+        <p>
+            <strong>Quantity:</strong>
+            {{ resource[4] }}
+        </p>
+
+        <p>
+            <strong>Utilization:</strong>
+            {{ resource[5] }}%
+        </p>
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+        <h2>No Resources Found</h2>
+        <p>Please add a resource first.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

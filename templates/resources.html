@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resource Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Resource Management</h1>
+
+    <p>Manage construction project resources.</p>
+
+
+    <div class="card">
+
+        <form action="/create-resource" method="POST">
+
+            <!-- Project -->
+
+            <div class="form-group">
+
+                <label for="project_id">
+                    Project
+                </label>
+
+                <select id="project_id"
+                        name="project_id"
+                        required>
+
+                    <option value="">
+                        Select Project
+                    </option>
+
+                    {% for project in projects %}
+
+                    <option value="{{ project[0] }}">
+                        {{ project[1] }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <!-- Resource Name -->
+
+            <div class="form-group">
+
+                <label for="resource_name">
+                    Resource Name
+                </label>
+
+                <input type="text"
+                       id="resource_name"
+                       name="resource_name"
+                       placeholder="Example: Construction Workers"
+                       required>
+
+            </div>
+
+
+            <!-- Resource Type -->
+
+            <div class="form-group">
+
+                <label for="resource_type">
+                    Resource Type
+                </label>
+
+                <select id="resource_type"
+                        name="resource_type"
+                        required>
+
+                    <option value="">
+                        Select Type
+                    </option>
+
+                    <option value="Human">
+                        Human Resource
+                    </option>
+
+                    <option value="Equipment">
+                        Equipment
+                    </option>
+
+                    <option value="Material">
+                        Material
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Quantity -->
+
+            <div class="form-group">
+
+                <label for="quantity">
+                    Quantity
+                </label>
+
+                <input type="number"
+                       id="quantity"
+                       name="quantity"
+                       min="1"
+                       placeholder="Enter quantity"
+                       required>
+
+            </div>
+
+
+            <!-- Utilization -->
+
+            <div class="form-group">
+
+                <label for="utilization">
+                    Utilization (%)
+                </label>
+
+                <input type="number"
+                       id="utilization"
+                       name="utilization"
+                       min="0"
+                       max="100"
+                       placeholder="Enter utilization percentage"
+                       required>
+
+            </div>
+
+
+            <button type="submit">
+                Add Resource
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

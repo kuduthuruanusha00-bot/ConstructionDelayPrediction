@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Project</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Create New Project</h1>
+
+        <p>Enter the project details below.</p>
+
+        <form action="/create-project" method="POST">
+
+            <div class="form-group">
+                <label for="project_name">Project Name</label>
+
+                <input
+                    type="text"
+                    id="project_name"
+                    name="project_name"
+                    placeholder="Enter project name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Project Description</label>
+
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="Enter project description"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+
+                <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline">Deadline</label>
+
+                <input
+                    type="date"
+                    id="deadline"
+                    name="deadline"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter project location"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Project Status</label>
+
+                <select id="status" name="status" required>
+                    <option value="">Select status</option>
+                    <option value="Not Started">Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <button type="submit">
+                Create Project
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

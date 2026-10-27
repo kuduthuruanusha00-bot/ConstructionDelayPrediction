@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Project Tasks</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Stored Project Tasks</h1>
+        <p>View your saved construction project tasks.</p>
+
+        {% if tasks %}
+            {% for task in tasks %}
+                <div class="card">
+                    <h2>{{ task[1] }}</h2>
+                    <p><strong>Task:</strong> {{ task[2] }}</p>
+                    <p><strong>Resource:</strong> {{ task[3] }}</p>
+                    <p><strong>Deadline:</strong> {{ task[4] }}</p>
+                    <p><strong>Progress:</strong> {{ task[5] }}%</p>
+                    <p><strong>Dependency:</strong>
+                        {{ task[6] or 'None' }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No stored tasks found. Please create a task first.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

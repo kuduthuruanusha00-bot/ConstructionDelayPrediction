@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Delay Risk Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>🔴 Delay Risk Prediction Engine</h1>
+
+    <p>
+        ML-based construction delay risk analysis
+    </p>
+
+
+    {% for item in results %}
+
+    <div class="card">
+
+        <h2>🏗️ {{ item.task_name }}</h2>
+
+        <p>
+            <strong>Project:</strong>
+            {{ item.project_name }}
+        </p>
+
+        <p>
+            <strong>Progress:</strong>
+            {{ item.progress }}%
+        </p>
+
+        <p>
+            <strong>Days Remaining:</strong>
+            {{ item.days_remaining }}
+        </p>
+
+        <p>
+            <strong>Dependency:</strong>
+            {{ item.dependency }}
+        </p>
+
+        <p>
+            <strong>Resource Utilization:</strong>
+            {{ item.utilization }}%
+        </p>
+
+        <hr>
+
+        <h2>Predicted Risk</h2>
+
+        {% if item.risk == "Low" %}
+
+            <h2 class="status-low">
+                🟢 Low Risk
+            </h2>
+
+            <p>
+                Task is currently progressing well.
+            </p>
+
+        {% elif item.risk == "Medium" %}
+
+            <h2 class="status-medium">
+                🟡 Medium Risk
+            </h2>
+
+            <p>
+                Task should be monitored closely.
+            </p>
+
+        {% else %}
+
+            <h2 class="status-high">
+                🔴 High Risk
+            </h2>
+
+            <p>
+                Immediate attention is recommended.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+
+        <h2>No Task Data Available</h2>
+
+        <p>
+            Please create a project and task first.
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+
+    <br>
+
+    <a href="/manager-dashboard"
+       class="dashboard-button">
+
+        ← Back to Dashboard
+
+    </a>
+
+</div>
+
+</body>
+</html>

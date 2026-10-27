@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Recommendation</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>🤖 Resource Recommendation Service</h1>
+        <p>Find resources with available capacity for construction projects.</p>
+
+        <div class="card">
+            <h2>Resource Recommendations</h2>
+            {% if recommendations %}
+    <ul>
+        {% for item in recommendations %}
+            <li>
+                <strong>{{ item.resource_name }}</strong> —
+                {{ item.status }}.
+                Quantity: {{ item.quantity }},
+                Utilization: {{ item.utilization }}%.
+                {{ item.advice }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No saved resources found. Add resources first using Manage Resources.</p>
+{% endif %}
+        </div>
+
+        <a href="{{ url_for('manager_dashboard') }}"
+           class="dashboard-button">Back to Dashboard</a>
+
+        <a href="{{ url_for('resources') }}"
+           class="dashboard-button">Manage Resources</a>
+    </div>
+</body>
+</html>

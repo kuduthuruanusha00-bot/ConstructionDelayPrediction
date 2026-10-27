@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Processed Project Data</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>⚙️ Processed Project Data</h1>
+
+    <p>
+        Cleaned and calculated construction project metrics
+    </p>
+
+
+    {% for item in data %}
+
+    <div class="card">
+
+        <h2>{{ item.task_name }}</h2>
+
+        <p>
+            <strong>Project:</strong>
+            {{ item.project_name }}
+        </p>
+
+        <p>
+            <strong>Progress:</strong>
+            {{ item.progress }}%
+        </p>
+
+        <p>
+            <strong>Remaining Progress:</strong>
+            {{ item.remaining_progress }}%
+        </p>
+
+        <p>
+            <strong>Days Remaining:</strong>
+            {{ item.days_remaining }}
+        </p>
+
+        <p>
+            <strong>Dependency:</strong>
+            {{ item.dependency }}
+        </p>
+
+        <p>
+            <strong>Resource Utilization:</strong>
+            {{ item.utilization }}%
+        </p>
+
+        <p>
+            <strong>Delay Indicator:</strong>
+
+            {% if item.delay_indicator == 1 %}
+
+                <span class="status-high">
+                    🔴 Possible Delay
+                </span>
+
+            {% else %}
+
+                <span class="status-low">
+                    🟢 On Track
+                </span>
+
+            {% endif %}
+
+        </p>
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+
+        <h2>No Processed Data</h2>
+
+        <p>
+            Please create a project, task and resource first.
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+
+    <br>
+
+    
+
+</div>
+<a href="/"
+   class="dashboard-button">
+    ← Back to Dashboard
+</a>
+</body>
+
+</html>
+

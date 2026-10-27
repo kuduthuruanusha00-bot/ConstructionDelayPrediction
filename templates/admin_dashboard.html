@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>Welcome, {{ username }}!</p>
+
+
+    <!-- User Management -->
+
+    <div class="card">
+
+        <h2>👤 User Management</h2>
+
+        <p>
+            Admin can manage users and system access.
+        </p>
+
+    </div>
+
+
+    <!-- Project Management -->
+
+    <div class="card">
+
+        <h2>🏗️ Project Management</h2>
+
+        <p>
+            View and monitor construction projects.
+        </p>
+
+        <a href="/projects"
+           class="dashboard-button">
+            View Projects
+        </a>
+
+    </div>
+
+
+    <!-- Analytics -->
+
+    <div class="card">
+
+        <h2>📊 Analytics</h2>
+
+        <p>
+            View overall project performance.
+        </p>
+
+        <a href="/analytics"
+           class="dashboard-button">
+            View Analytics
+        </a>
+
+    </div>
+
+
+    <!-- Logout -->
+
+    <a href="/logout"
+       class="dashboard-button">
+        🚪 Logout
+    </a>
+
+</div>
+
+</body>
+</html>
+

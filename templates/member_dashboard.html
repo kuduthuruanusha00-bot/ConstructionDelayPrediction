@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Member Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Member Dashboard</h1>
+
+    <p>Welcome, {{ username }}!</p>
+
+
+    <!-- PROJECTS -->
+
+    <div class="card">
+
+        <h2>🏗️ Projects</h2>
+
+        <p>
+            View available construction projects.
+        </p>
+
+        <a href="/projects" class="dashboard-button">
+            View Projects
+        </a>
+
+    </div>
+
+
+    <!-- TASKS -->
+
+    <div class="card">
+
+        <h2>📋 Tasks</h2>
+
+        <p>
+            View construction tasks and their progress.
+        </p>
+
+        <a href="/stored-tasks" class="dashboard-button">
+            View Tasks
+        </a>
+
+    </div>
+
+
+    <!-- RESOURCES -->
+
+    <div class="card">
+
+        <h2>🛠️ Resources</h2>
+
+        <p>
+            View resources used in construction projects.
+        </p>
+
+        <a href="/stored-resources" class="dashboard-button">
+            View Resources
+        </a>
+
+    </div>
+<a href="/logout" class="dashboard-button">
+    🚪 Logout
+</a>
+</div>
+
+</body>
+
+</html>

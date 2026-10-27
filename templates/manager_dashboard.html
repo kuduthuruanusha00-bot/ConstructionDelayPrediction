@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Project Manager Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <h1>Project Manager Dashboard</h1>
+
+    <p>Welcome, {{ username }}!</p>
+
+
+    <!-- PROJECTS -->
+
+    <div class="card">
+
+        <h2>Projects</h2>
+
+        <p>Manage construction projects.</p>
+
+        <a href="/project" class="dashboard-button">
+            Create Project
+        </a>
+
+        <a href="/projects" class="dashboard-button">
+            View Projects
+        </a>
+
+    </div>
+
+
+    <!-- TASKS -->
+
+    <div class="card">
+
+        <h2>Tasks</h2>
+
+        <p>Manage project tasks and deadlines.</p>
+
+        <a href="/tasks" class="dashboard-button">
+            Manage Tasks
+        </a>
+
+        <a href="/stored-tasks" class="dashboard-button">
+            View Tasks
+        </a>
+
+    </div>
+
+
+    <!-- RESOURCES -->
+
+    <div class="card">
+
+        <h2>Resources</h2>
+
+        <p>Manage construction resources.</p>
+
+        <a href="/resources" class="dashboard-button">
+            Manage Resources
+        </a>
+
+        <a href="/stored-resources" class="dashboard-button">
+            View Resources
+        </a>
+
+    </div>
+
+
+    <!-- DELAY RISK -->
+
+    <div class="card">
+
+        <h2>Delay Risk</h2>
+
+        <p>View ML-based construction delay predictions.</p>
+
+        <a href="/delay-risk" class="dashboard-button">
+            View Delay Risk
+        </a>
+
+    </div>
+
+
+    <!-- ANALYTICS -->
+
+    <div class="card">
+
+        <h2>📊 Analytics</h2>
+
+        <p>View project performance and resource statistics.</p>
+
+        <a href="/analytics" class="dashboard-button">
+            View Analytics
+        </a>
+
+    </div>
+
+
+    <!-- RISK ALERTS -->
+
+    <div class="card">
+
+        <h2>⚠️ Risk Alerts</h2>
+
+        <p>View high-risk tasks and recommendations.</p>
+
+        <a href="/risk-alerts" class="dashboard-button">
+            View Risk Alerts
+        </a>
+
+    </div>
+
+
+    
+
+<div class="card">
+    <h2>👥 Team Member Management</h2>
+    <p>Assign responsibilities and track team progress.</p>
+    <a href="/team-members" class="dashboard-button">
+        Manage Team Members
+    </a>
+</div>
+    <!-- RESOURCE RECOMMENDATION SERVICE -->
+
+    <div class="card">
+
+        <h2>🤖 Resource Recommendation</h2>
+
+        <p>
+            Get suitable resource recommendations for construction
+            tasks based on resource availability and utilization.
+        </p>
+
+        <a href="/resource-recommendation" class="dashboard-button">
+            Get Recommendations
+        </a>
+
+    </div>
+</div>
+    </div>
+<a href="/logout" class="dashboard-button">🚪 Logout</a>
+</div>
+
+</body>
+
+</html>
